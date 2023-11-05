@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import login from "@/api/auth/login";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AuthWrapper,
   BorderWrapper,
@@ -24,6 +24,8 @@ import {
   ContentGoogleSubmit,
 } from "../styles/AuthStyled";
 import { useRouter } from "next/router";
+import axios from "@/lib/axios";
+import { error } from "console";
 
 interface InputType {
   username: string;
@@ -32,6 +34,25 @@ interface InputType {
 
 const Login = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        await axios.get("/todo");
+        if (router.pathname === "/login") {
+          router.replace("/");
+        }
+      } catch (error: any) {
+        if (error.response && error.response.status === 401) {
+          if (router.pathname !== "/login") {
+            router.replace("/login");
+          }
+        }
+      }
+    };
+    checkLoginStatus();
+  }, [router.pathname]);
+
   const [input, setInput] = useState<InputType>({
     username: "",
     password: "",
