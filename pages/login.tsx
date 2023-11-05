@@ -21,6 +21,7 @@ import {
   ContentSignup,
   GoogleLogo,
   Line,
+  ContentGoogleSubmit,
 } from "../styles/AuthStyled";
 import { useRouter } from "next/router";
 
@@ -97,10 +98,10 @@ const Login = () => {
               <ContentSubmitWrap>
                 <ContentSubmit onClick={loginHandler}>로그인</ContentSubmit>
                 <Line src="/assets/symbols/line.svg" />
-                <ContentSubmit onClick={loginHandler}>
+                <ContentGoogleSubmit href="http://localhost:3000/auth/google">
                   <GoogleLogo src="/assets/symbols/google.svg" />
                   구글계정으로 로그인
-                </ContentSubmit>
+                </ContentGoogleSubmit>
                 <ContentSignup href="/register">회원가입</ContentSignup>
               </ContentSubmitWrap>
             </ContentWrap>

@@ -148,6 +148,26 @@ export const ContentSubmit = styled.button`
   transition: 0.2s;
 `;
 
+export const ContentGoogleSubmit = styled(Link)`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 0;
+
+  border-radius: 8px;
+  border: none;
+  background-color: #bf9076;
+
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: 0.2s;
+`;
+
 export const ContentSignup = styled(Link)`
   width: 100%;
   text-align: right;
