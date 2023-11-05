@@ -82,7 +82,7 @@ export const ContentInputBox = styled.div`
   display: flex;
   gap: 12px;
   align-items: center;
-  background-color: transparent;
+  background-color: #f6f1ef;
   padding: 0 18px;
   border-radius: 6px;
 `;

@@ -24,7 +24,6 @@ import {
   ContentGoogleSubmit,
 } from "../styles/AuthStyled";
 import { useRouter } from "next/router";
-import axios from "@/lib/axios";
 
 interface InputType {
   username: string;
