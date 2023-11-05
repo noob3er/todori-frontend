@@ -10,6 +10,21 @@ export const AuthWrapper = styled.div`
   justify-content: center;
 `;
 
+export const BorderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 480px;
+  height: auto;
+  padding: 20px;
+
+  border: 2px solid grey;
+  box-shadow: 2px 4px grey;
+  border-radius: 20px;
+  background-color: #fafafa;
+`;
+
 export const AuthInner = styled.div`
   width: 100%;
   height: 100%;

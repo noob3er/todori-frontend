@@ -5,6 +5,7 @@ import login from "@/api/auth/login";
 import React, { useState } from "react";
 import {
   AuthWrapper,
+  BorderWrapper,
   AuthInner,
   ContentWrap,
   ContentTitle,
@@ -57,52 +58,54 @@ const Login = () => {
         <title>Todori - login</title>
       </Head>
       <AuthWrapper>
-        <AuthInner>
-          <ContentWrap>
-            <ContentTitle src="/assets/logo/logo.svg" />
-            <MainTitle>Todori</MainTitle>
-            <ContentInputWrap>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/account.svg" />
-                <ContentInput
-                  name="id"
-                  value={input.id}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="아이디"
-                />
-              </ContentInputBox>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/lock.svg" />
-                <ContentInput
-                  name="pw"
-                  value={input.pw}
-                  onChange={handleChange}
-                  type={visiblePw ? "text" : "password"}
-                  placeholder="비밀번호"
-                />
-                <ContentVisiblePassword onClick={handleVisiblePassword}>
-                  <ContentVisiblePasswordIcon
-                    src={
-                      visiblePw
-                        ? "/assets/symbols/visible.svg"
-                        : "/assets/symbols/invisible.svg"
-                    }
+        <BorderWrapper>
+          <AuthInner>
+            <ContentWrap>
+              <ContentTitle src="/assets/logo/logo.svg" />
+              <MainTitle>Todori</MainTitle>
+              <ContentInputWrap>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/account.svg" />
+                  <ContentInput
+                    name="id"
+                    value={input.id}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="아이디"
                   />
-                </ContentVisiblePassword>
-              </ContentInputBox>
-            </ContentInputWrap>
-            <ContentSubmitWrap>
-              <ContentSubmit onClick={loginHandler}>로그인</ContentSubmit>
-              <Line src="/assets/symbols/line.svg" />
-              <ContentSubmit onClick={loginHandler}>
-                <GoogleLogo src="/assets/symbols/google.svg" />
-                구글계정으로 로그인
-              </ContentSubmit>
-              <ContentSignup href="/register">회원가입</ContentSignup>
-            </ContentSubmitWrap>
-          </ContentWrap>
-        </AuthInner>
+                </ContentInputBox>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/lock.svg" />
+                  <ContentInput
+                    name="pw"
+                    value={input.pw}
+                    onChange={handleChange}
+                    type={visiblePw ? "text" : "password"}
+                    placeholder="비밀번호"
+                  />
+                  <ContentVisiblePassword onClick={handleVisiblePassword}>
+                    <ContentVisiblePasswordIcon
+                      src={
+                        visiblePw
+                          ? "/assets/symbols/visible.svg"
+                          : "/assets/symbols/invisible.svg"
+                      }
+                    />
+                  </ContentVisiblePassword>
+                </ContentInputBox>
+              </ContentInputWrap>
+              <ContentSubmitWrap>
+                <ContentSubmit onClick={loginHandler}>로그인</ContentSubmit>
+                <Line src="/assets/symbols/line.svg" />
+                <ContentSubmit onClick={loginHandler}>
+                  <GoogleLogo src="/assets/symbols/google.svg" />
+                  구글계정으로 로그인
+                </ContentSubmit>
+                <ContentSignup href="/register">회원가입</ContentSignup>
+              </ContentSubmitWrap>
+            </ContentWrap>
+          </AuthInner>
+        </BorderWrapper>
       </AuthWrapper>
     </>
   );

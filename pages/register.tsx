@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import {
   AuthWrapper,
+  BorderWrapper,
   AuthInner,
   ContentWrap,
   ContentTitle,
@@ -107,86 +108,90 @@ const Login = () => {
         <title>Todori - login</title>
       </Head>
       <AuthWrapper>
-        <AuthInner>
-          <ContentWrap>
-            <ContentTitle src="/assets/logo/logo.svg" />
-            <MainTitle>Todori</MainTitle>
-            <ContentInputWrap>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/account.svg" />
-                <ContentInput
-                  name="id"
-                  value={input.id}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="아이디"
-                />
-              </ContentInputBox>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/email.svg" />
-                <ContentInput
-                  name="email"
-                  value={input.email}
-                  onChange={handleChange}
-                  type="email"
-                  placeholder="이메일"
-                />
-              </ContentInputBox>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/lock.svg" />
-                <ContentInput
-                  name="pw"
-                  value={input.pw}
-                  onChange={handleChange}
-                  type={visiblePw.pw ? "text" : "password"}
-                  placeholder="비밀번호"
-                />
-                <ContentVisiblePassword
-                  name="pw"
-                  onClick={(e) => {
-                    handleVisiblePassword(e, visiblePw.pw);
-                  }}
-                >
-                  <ContentVisiblePasswordIcon
-                    src={
-                      visiblePw.pw
-                        ? "/assets/symbols/visible.svg"
-                        : "/assets/symbols/invisible.svg"
-                    }
+        <BorderWrapper>
+          <AuthInner>
+            <ContentWrap>
+              <ContentTitle src="/assets/logo/logo.svg" />
+              <MainTitle>Todori</MainTitle>
+              <ContentInputWrap>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/account.svg" />
+                  <ContentInput
+                    name="id"
+                    value={input.id}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="아이디"
                   />
-                </ContentVisiblePassword>
-              </ContentInputBox>
-              <ContentInputBox>
-                <ContentInputImage src="/assets/symbols/lock.svg" />
-                <ContentInput
-                  name="pwcheck"
-                  value={input.pwcheck}
-                  onChange={handleChange}
-                  type={visiblePw.pwcheck ? "text" : "password"}
-                  placeholder="비밀번호 확인"
-                />
-                <ContentVisiblePassword
-                  name="pwcheck"
-                  onClick={(e) => {
-                    handleVisiblePassword(e, visiblePw.pwcheck);
-                  }}
-                >
-                  <ContentVisiblePasswordIcon
-                    src={
-                      visiblePw.pwcheck
-                        ? "/assets/symbols/visible.svg"
-                        : "/assets/symbols/invisible.svg"
-                    }
+                </ContentInputBox>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/email.svg" />
+                  <ContentInput
+                    name="email"
+                    value={input.email}
+                    onChange={handleChange}
+                    type="email"
+                    placeholder="이메일"
                   />
-                </ContentVisiblePassword>
-              </ContentInputBox>
-            </ContentInputWrap>
-            <ContentSubmitWrap>
-              <ContentSubmit onClick={registerHandler}>회원가입</ContentSubmit>
-              <ContentSignup href="/login">로그인</ContentSignup>
-            </ContentSubmitWrap>
-          </ContentWrap>
-        </AuthInner>
+                </ContentInputBox>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/lock.svg" />
+                  <ContentInput
+                    name="pw"
+                    value={input.pw}
+                    onChange={handleChange}
+                    type={visiblePw.pw ? "text" : "password"}
+                    placeholder="비밀번호"
+                  />
+                  <ContentVisiblePassword
+                    name="pw"
+                    onClick={(e) => {
+                      handleVisiblePassword(e, visiblePw.pw);
+                    }}
+                  >
+                    <ContentVisiblePasswordIcon
+                      src={
+                        visiblePw.pw
+                          ? "/assets/symbols/visible.svg"
+                          : "/assets/symbols/invisible.svg"
+                      }
+                    />
+                  </ContentVisiblePassword>
+                </ContentInputBox>
+                <ContentInputBox>
+                  <ContentInputImage src="/assets/symbols/lock.svg" />
+                  <ContentInput
+                    name="pwcheck"
+                    value={input.pwcheck}
+                    onChange={handleChange}
+                    type={visiblePw.pwcheck ? "text" : "password"}
+                    placeholder="비밀번호 확인"
+                  />
+                  <ContentVisiblePassword
+                    name="pwcheck"
+                    onClick={(e) => {
+                      handleVisiblePassword(e, visiblePw.pwcheck);
+                    }}
+                  >
+                    <ContentVisiblePasswordIcon
+                      src={
+                        visiblePw.pwcheck
+                          ? "/assets/symbols/visible.svg"
+                          : "/assets/symbols/invisible.svg"
+                      }
+                    />
+                  </ContentVisiblePassword>
+                </ContentInputBox>
+              </ContentInputWrap>
+              <ContentSubmitWrap>
+                <ContentSubmit onClick={registerHandler}>
+                  회원가입
+                </ContentSubmit>
+                <ContentSignup href="/login">로그인</ContentSignup>
+              </ContentSubmitWrap>
+            </ContentWrap>
+          </AuthInner>
+        </BorderWrapper>
       </AuthWrapper>
     </>
   );
