@@ -23,25 +23,25 @@ import { useRouter } from "next/router";
 import register from "../api/auth/register";
 
 interface InputType {
-  id: string;
+  username: string;
   email: string;
-  pw: string;
+  password: string;
   pwcheck: string;
 }
 
 const Login = () => {
   const router = useRouter();
   const [input, setInput] = useState<InputType>({
-    id: "",
+    username: "",
     email: "",
-    pw: "",
+    password: "",
     pwcheck: "",
   });
   const [visiblePw, setVisiblePw] = useState<{
-    pw: boolean;
+    password: boolean;
     pwcheck: boolean;
   }>({
-    pw: false,
+    password: false,
     pwcheck: false,
   });
 
@@ -54,39 +54,39 @@ const Login = () => {
   };
 
   const registerHandler = async () => {
-    if (input.pw !== input.pwcheck) {
+    if (input.password !== input.pwcheck) {
       alert("비밀번호가 일치하지 않습니다!");
       return;
     }
     if (
-      input.id == "" ||
+      input.username == "" ||
       input.email == "" ||
-      input.pw == "" ||
+      input.password == "" ||
       input.pwcheck == ""
     ) {
       alert("빈칸을 모두 채워주세요!");
       return;
     }
-    if (input.pw.length < 8) {
+    if (input.password.length < 8) {
       alert("비밀번호는 8자 이상이어야 합니다.");
       return;
     }
-    if (input.pw.length > 20) {
+    if (input.password.length > 20) {
       alert("비밀번호는 20자 이하여야 합니다.");
       return;
     }
-    if (input.id.length < 4) {
+    if (input.username.length < 4) {
       alert("아이디는 4자 이상이어야 합니다.");
       return;
     }
-    if (input.id.length > 20) {
+    if (input.username.length > 20) {
       alert("아이디는 20자 이하여야 합니다.");
       return;
     }
     const res = await register({
-      id: input.id,
+      username: input.username,
       email: input.email,
-      pw: input.pw,
+      pw: input.password,
     });
     res && router.replace("/");
   };
@@ -117,8 +117,8 @@ const Login = () => {
                 <ContentInputBox>
                   <ContentInputImage src="/assets/symbols/account.svg" />
                   <ContentInput
-                    name="id"
-                    value={input.id}
+                    name="username"
+                    value={input.username}
                     onChange={handleChange}
                     type="text"
                     placeholder="아이디"
@@ -137,21 +137,21 @@ const Login = () => {
                 <ContentInputBox>
                   <ContentInputImage src="/assets/symbols/lock.svg" />
                   <ContentInput
-                    name="pw"
-                    value={input.pw}
+                    name="password"
+                    value={input.password}
                     onChange={handleChange}
-                    type={visiblePw.pw ? "text" : "password"}
+                    type={visiblePw.password ? "text" : "password"}
                     placeholder="비밀번호"
                   />
                   <ContentVisiblePassword
                     name="pw"
                     onClick={(e) => {
-                      handleVisiblePassword(e, visiblePw.pw);
+                      handleVisiblePassword(e, visiblePw.password);
                     }}
                   >
                     <ContentVisiblePasswordIcon
                       src={
-                        visiblePw.pw
+                        visiblePw.password
                           ? "/assets/symbols/visible.svg"
                           : "/assets/symbols/invisible.svg"
                       }

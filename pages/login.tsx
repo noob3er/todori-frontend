@@ -26,15 +26,15 @@ import {
 import { useRouter } from "next/router";
 
 interface InputType {
-  id: string;
-  pw: string;
+  username: string;
+  password: string;
 }
 
 const Login = () => {
   const router = useRouter();
   const [input, setInput] = useState<InputType>({
-    id: "",
-    pw: "",
+    username: "",
+    password: "",
   });
   const [visiblePw, setVisiblePw] = useState<boolean>(false);
 
@@ -47,7 +47,10 @@ const Login = () => {
   };
 
   const loginHandler = async () => {
-    const res = await login({ id: input.id, password: input.pw });
+    const res = await login({
+      username: input.username,
+      password: input.password,
+    });
     res && router.replace("/");
   };
 
@@ -68,8 +71,8 @@ const Login = () => {
                 <ContentInputBox>
                   <ContentInputImage src="/assets/symbols/account.svg" />
                   <ContentInput
-                    name="id"
-                    value={input.id}
+                    name="username"
+                    value={input.username}
                     onChange={handleChange}
                     type="text"
                     placeholder="아이디"
@@ -78,8 +81,8 @@ const Login = () => {
                 <ContentInputBox>
                   <ContentInputImage src="/assets/symbols/lock.svg" />
                   <ContentInput
-                    name="pw"
-                    value={input.pw}
+                    name="password"
+                    value={input.password}
                     onChange={handleChange}
                     type={visiblePw ? "text" : "password"}
                     placeholder="비밀번호"

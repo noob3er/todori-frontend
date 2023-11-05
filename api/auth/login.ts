@@ -3,7 +3,7 @@ import axios from "@/lib/axios";
 import { AuthResDto } from "./dto/AuthResDto";
 
 interface Payload {
-  id: string;
+  username: string;
   password: string;
 }
 
