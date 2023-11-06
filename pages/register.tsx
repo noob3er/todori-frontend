@@ -86,7 +86,7 @@ const Login = () => {
     const res = await register({
       username: input.username,
       email: input.email,
-      pw: input.password,
+      password: input.password,
     });
     res && router.replace("/");
   };
@@ -144,7 +144,7 @@ const Login = () => {
                     placeholder="비밀번호"
                   />
                   <ContentVisiblePassword
-                    name="pw"
+                    name="password"
                     onClick={(e) => {
                       handleVisiblePassword(e, visiblePw.password);
                     }}

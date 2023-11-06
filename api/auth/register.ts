@@ -5,7 +5,7 @@ import { AuthResDto } from "./dto/AuthResDto";
 interface Payload {
   username: string;
   email: string;
-  pw: string;
+  password: string;
 }
 
 const register = async (payload: Payload): Promise<AuthResDto | null> => {
