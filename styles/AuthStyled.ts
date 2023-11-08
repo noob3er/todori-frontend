@@ -138,7 +138,7 @@ export const ContentSubmit = styled.button`
 
   border-radius: 8px;
   border: none;
-  background-color: #bf9076;
+  background-color: #b37d5f;
 
   font-weight: 600;
   font-size: 14px;

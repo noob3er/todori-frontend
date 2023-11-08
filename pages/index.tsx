@@ -1,9 +1,9 @@
-import Header from "@/components/header";
-import styled from "styled-components";
+import Sidebar from "@/components/sidebar";
+
 const Index = () => {
   return (
     <>
-      <Header />
+      <Sidebar />
     </>
   );
 };
