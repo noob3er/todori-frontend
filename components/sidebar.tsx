@@ -1,9 +1,20 @@
+import getProfile from "@/api/auth/Profile/getProfile";
 import { LoginResDto } from "@/api/auth/login/dto/LoginResDto";
+import { getCookie } from "cookies-next";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+
 const Sidebar = () => {
   const [profile, setProfile] = useState<LoginResDto>();
+
+  useEffect(() => {
+    if (getCookie("accessToken"))
+      async () => {
+        const res = await getProfile();
+        setProfile(res);
+      };
+  }, [setProfile]);
 
   return (
     <>
