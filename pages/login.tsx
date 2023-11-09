@@ -47,7 +47,8 @@ const Login = () => {
     });
   };
 
-  const loginHandler = async () => {
+  const loginHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const res = await login({
       username: input.username,
       password: input.password,
@@ -65,7 +66,7 @@ const Login = () => {
       <AuthWrapper>
         <BorderWrapper>
           <AuthInner>
-            <ContentWrap>
+            <ContentWrap as="form" onSubmit={loginHandler}>
               <ContentTitle src="/assets/logo/logo.svg" />
               <MainTitle>Todori</MainTitle>
               <ContentInputWrap>
@@ -100,9 +101,7 @@ const Login = () => {
                 </ContentInputBox>
               </ContentInputWrap>
               <ContentSubmitWrap>
-                <ContentSubmit>
-                  <form onSubmit={loginHandler}>로그인</form>
-                </ContentSubmit>
+                <ContentSubmit type="submit">로그인</ContentSubmit>
                 <Line src="/assets/symbols/line.svg" />
                 <ContentGoogleSubmit href="http://localhost:3000/auth/google">
                   <GoogleLogo src="/assets/symbols/google.svg" />
