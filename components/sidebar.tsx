@@ -1,12 +1,12 @@
 import getProfile from "@/api/auth/Profile/getProfile";
-import { LoginResDto } from "@/api/auth/login/dto/LoginResDto";
+import { SignupResDto } from "@/api/auth/signup/dto/SignupResDto";
 import { getCookie } from "cookies-next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Sidebar = () => {
-  const [profile, setProfile] = useState<LoginResDto>();
+  const [profile, setProfile] = useState<SignupResDto>();
 
   useEffect(() => {
     if (getCookie("accessToken"))
