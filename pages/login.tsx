@@ -66,7 +66,7 @@ const Login = () => {
       <AuthWrapper>
         <BorderWrapper>
           <AuthInner>
-            <ContentWrap as="form" onSubmit={loginHandler}>
+            <ContentWrap onSubmit={loginHandler}>
               <ContentTitle src="/assets/logo/logo.svg" />
               <MainTitle>Todori</MainTitle>
               <ContentInputWrap>
@@ -89,7 +89,10 @@ const Login = () => {
                     type={visiblePw ? "text" : "password"}
                     placeholder="비밀번호"
                   />
-                  <ContentVisiblePassword onClick={handleVisiblePassword}>
+                  <ContentVisiblePassword
+                    type="button"
+                    onClick={handleVisiblePassword}
+                  >
                     <ContentVisiblePasswordIcon
                       src={
                         visiblePw

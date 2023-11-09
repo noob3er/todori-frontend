@@ -1,6 +1,7 @@
 import { setCookie } from "cookies-next";
 import axios from "@/lib/axios";
 import { AuthResDto } from "./dto/AuthResDto";
+import { apiInstance } from "..";
 
 interface Payload {
   username: string;
@@ -10,7 +11,7 @@ interface Payload {
 
 const register = async (payload: Payload): Promise<AuthResDto | null> => {
   try {
-    const { data } = await axios.post("/auth/register", payload);
+    const { data } = await apiInstance().post("/auth/register", payload);
     axios.defaults.headers.common[
       "Authorization"
     ] = `Bearer ${data.accessToken}`;

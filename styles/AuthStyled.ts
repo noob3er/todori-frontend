@@ -34,7 +34,7 @@ export const AuthInner = styled.div`
   justify-content: center;
 `;
 
-export const ContentWrap = styled.div`
+export const ContentWrap = styled.form`
   width: 85%;
   max-width: 360px;
 
@@ -73,8 +73,6 @@ export const ContentInputWrap = styled.div`
   flex-direction: column;
 
   gap: 6px;
-
-  padding: 10px;
 `;
 
 export const ContentInputBox = styled.div`
