@@ -100,7 +100,9 @@ const Login = () => {
                 </ContentInputBox>
               </ContentInputWrap>
               <ContentSubmitWrap>
-                <ContentSubmit onClick={loginHandler}>로그인</ContentSubmit>
+                <ContentSubmit>
+                  <form onSubmit={loginHandler}>로그인</form>
+                </ContentSubmit>
                 <Line src="/assets/symbols/line.svg" />
                 <ContentGoogleSubmit href="http://localhost:3000/auth/google">
                   <GoogleLogo src="/assets/symbols/google.svg" />

@@ -25,7 +25,7 @@ const Sidebar = () => {
         </ToggleLabel>
         <SidebarContentWrap>
           <SidebarHeader>
-            <SidebarLogoWrap href="/">
+            <SidebarLogoWrap href="/" passHref>
               <SidebarLogo src="/assets/logo/logo.svg" />
               <Title>Todori</Title>
             </SidebarLogoWrap>
@@ -39,7 +39,6 @@ const Sidebar = () => {
                 로그인이 필요합니다.
               </SidebarProfileName>
             )}
-            <SidebarProfileContent></SidebarProfileContent>
           </SidebarProfileWrap>
         </SidebarContentWrap>
       </SidebarWrap>
@@ -153,7 +152,12 @@ const SidebarProfileImg = styled.img`
   padding: 8px;
 `;
 
-const SidebarProfileContent = styled.div``;
+const SidebarProfileContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+`;
 
 const Toggle = styled.input`
   display: none;
@@ -176,4 +180,13 @@ const SidebarProfileName = styled.p`
   font-size: 18px;
   font-weight: 600;
   color: #fff;
+`;
+
+const SidebarItems = styled(Link)`
+  font-size: 18px;
+  font-weight: 900;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
 `;
