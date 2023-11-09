@@ -152,13 +152,6 @@ const SidebarProfileImg = styled.img`
   padding: 8px;
 `;
 
-const SidebarProfileContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-`;
-
 const Toggle = styled.input`
   display: none;
 

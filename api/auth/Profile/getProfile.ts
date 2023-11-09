@@ -1,11 +1,11 @@
 import { getCookie } from "cookies-next";
 import Router from "next/router";
 import { SignupResDto } from "@/api/auth/signup/dto/SignupResDto";
-import axios from "@/lib/axios";
+import { authInstance } from "@/api";
 
 const getProfile = async () => {
   try {
-    const { data } = await axios.get<SignupResDto>("/profile", {
+    const { data } = await authInstance().get<SignupResDto>("/profile", {
       headers: {
         Authorization: `Bearer ${getCookie("accessToken")}`,
       },
